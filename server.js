@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 //   res.render('maintenance.hbs');
 // }); uncomment to render only maintenance
 
-app.use(express.static(__dirname + '/public')); //dirname uses the name of whatever directory this file is in 
+app.use(express.static(__dirname + '/public'));
 
 
 hbs.registerHelper('getCurrentYear', () => {
@@ -35,10 +35,9 @@ hbs.registerHelper('screamIt', (text) => {
 });
 
 app.get('/', (req, res) => {
-//   res.send('<h1>Here is a response</h1>');
   res.render('home.hbs', {
     pageTitle: 'Home Page',
-    welcomeMessage: 'Welcome to the page managed by Handlebars.',
+    welcomeMessage: 'Welcome to the home page',
   });
 });
 
@@ -50,7 +49,7 @@ app.get('/about',(req, res) => {
 
 app.get('/bad', (req, res) => {
   res.send({
-    errorMessage: 'Unable to fulfill request'
+    errorMessage: 'Unable to fulfill request.'
   });
 });
 
